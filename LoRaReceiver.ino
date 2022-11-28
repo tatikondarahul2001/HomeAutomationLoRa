@@ -1,10 +1,10 @@
 #include <LoRa.h> 
 
-const int LED1 = 3;   // indicator LED
-const int RLY1 = 4;   // relay 1
-const int RLY2 = 5;   // relay 2
+const int LED1 = 3;
+const int RLY1 = 4;
+const int RLY2 = 5;
 
-String inString = "";    // string to hold input
+String inString = ""; 
 int val = 0;
 int SyncWord = 0x22;
  
@@ -24,17 +24,10 @@ void setup() {
     Serial.println("Starting LoRa failed!");
     while (1);
   }
-   LoRa.setSpreadingFactor(12);           // ranges from 6-12,default 7 see API docs
-   LoRa.setSignalBandwidth(62.5E3);           // for -139dB (page - 112)
-   LoRa.setCodingRate4(8);                   // for -139dB (page - 112)
-   LoRa.setSyncWord(SyncWord);           // ranges from 0-0xFF, default 0x12, see API docs
-/*
-  Serial.print("current spreading factor : ");
-  Serial.println(LoRa.getSpreadingFactor());
-  Serial.print("current bandwidth : ");
-  Serial.println(LoRa.getSignalBandwidth());
-  Serial.println("LoRa init succeeded.");
-  */
+   LoRa.setSpreadingFactor(12);
+   LoRa.setSignalBandwidth(62.5E3);
+   LoRa.setCodingRate4(8);
+   LoRa.setSyncWord(SyncWord);
 }
 bool i=0;
 int priviousValue = 0;
@@ -86,10 +79,4 @@ void loop() {
       digitalWrite(RLY2 , HIGH);
     }
   }
-  //delay(50);
 }
-
-/*
- * 1. when switch 1 is pressed turn ON RLY1 & RLY2
- * 2. if 
- */
